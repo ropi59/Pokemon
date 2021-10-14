@@ -6,20 +6,24 @@ public class PokemonFeu extends Pokemon{
 	
 	//constructeurs
 	public PokemonFeu() {
-		super();
+
 	}
 	
 	public PokemonFeu(String nom, int health, int attack, String type) {
-		super(nom, health, attack);
-		this.type = type;
+		super(nom, health, attack, type);
+		
 	}
 	
 	//method to attack
 	public int attaquer(Pokemon p) {
 		System.out.println("attaque feu!");
-		//super(p.getHealth(), getAttack());
 		int hp = p.getHealth();
 		int atk = getAttack();
+			if (p.getType().equals ("plant")) {
+				atk = (atk*2);
+			} else if (p.getType().equals ("feu") || p.getType().equals ("eau")) {
+				atk = (atk/2);
+			}
 		hp -= atk;
 		p.setHealth(hp);
 		return p.getHealth();
@@ -27,9 +31,8 @@ public class PokemonFeu extends Pokemon{
 
 	@Override
 	public String toString() {
-		return "PokemonFeu [type=" + type + ", isDead()=" + isDead() + ", getNom()=" + getNom() + ", getHealth()="
-				+ getHealth() + ", getAttack()=" + getAttack() + "]";
+		return "PokemonFeu [nom=" + super.getNom() + ", health=" + super.getHealth() + ", attack=" + super.getAttack() + ", type=" + type + ", isDead="
+				+ super.isDead() + "]";
 	}
-	
-	
+
 }

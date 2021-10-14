@@ -5,6 +5,7 @@ public class Pokemon {
 	private String nom;
 	private int health;
 	private int attack;
+	private String type;
 	private boolean isDead;
 	
 	//constructeurs
@@ -12,11 +13,11 @@ public class Pokemon {
 		
 	}
 
-	public Pokemon(String nom, int health, int attack) {
-		super();
+	public Pokemon(String nom, int health, int attack, String type) {
 		this.nom = nom;
 		this.health = health;
 		this.attack = attack;
+		this.type = type;
 	}
 	
 	//method to verif if pokemon is dead
@@ -29,6 +30,7 @@ public class Pokemon {
 	
 	//method to attack
 	public int attaquer(Pokemon p) {
+		System.out.println("attaque griffe!");
 		p.health -= this.attack;
 		return p.health;
 	}
@@ -57,6 +59,14 @@ public class Pokemon {
 	public void setAttack(int attack) {
 		this.attack = attack;
 	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
@@ -64,8 +74,11 @@ public class Pokemon {
 
 	@Override
 	public String toString() {
-		return "Pokemon [nom=" + nom + ", health=" + health + ", attack=" + attack + ", isDead=" + isDead + "]";
+		return "Pokemon [nom=" + nom + ", health=" + health + ", attack=" + attack + ", type=" + type + ", isDead="
+				+ isDead + "]";
 	}
+
+	
 	
 	
 }
